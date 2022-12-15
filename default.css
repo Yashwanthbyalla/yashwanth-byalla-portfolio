@@ -17,6 +17,7 @@
   --mainBorderColor-dark: #2b3031;
   --mainBorderColor: var(--mainBorderColor-dark);
   --blue: #00abff;
+  --contact-bar-bg: #262626;
 }
 
 html,
@@ -669,7 +670,7 @@ h6 {
   left: 15px;
   display: flex;
   flex-direction: column;
-  background: #262626;
+  background: var(--contact-bar-bg);
   border-radius: 30px;
   box-shadow: 3px 3px 6px #00000042;
 }
