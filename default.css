@@ -562,22 +562,23 @@ h6 {
 .left-side .btn-container .code-btn:hover {
   background: darken(#454545, 10%);
 }
-.left-side .btn-container .live-btn {
-  background: #00abff;
+.left-side .btn-container .link-btn {
+  /* background: #00abff; */
   transition: background 0.5s;
+  border: 2px solid #00abff;
 }
-.left-side .btn-container .live-btn:hover {
+.left-side .btn-container .link-btn:hover {
   background: darken(#00abff, 10%);
 }
 .left-side .btn-container .code-btn,
-.left-side .btn-container .live-btn {
+.left-side .btn-container .link-btn {
   padding: 12px 20px;
   border-radius: 50px;
-  color: white;
+  color: #000;
 }
 .left-side .btn-container .code-btn i,
-.left-side .btn-container .live-btn i {
-  color: white;
+.left-side .btn-container .link-btn i {
+  color: #000;
   margin-right: 5px;
 }
 .left-side img {
@@ -624,7 +625,7 @@ h6 {
   font-size: 0.9rem;
   font-weight: 700;
   border-radius: 40px;
-  border: 2px solid #00abff;
+  border: 2px dashed #00abff;
 }
 .right-side .flex-right {
   padding-left: 30px;
