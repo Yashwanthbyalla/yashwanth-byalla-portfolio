@@ -798,3 +798,19 @@ h6 {
 .fa-github {
   color: #000;
 }
+
+.y-scroll {
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 2px 4px 5px rgb(0 0 0 / 30%);
+  transition: transform 0.4s ease;
+}
+.y-scroll-right {
+  transform: translateX(400%);
+}
+.y-scroll-left {
+  transform: translateX(-400%);
+}
+.y-scroll.show {
+  transform: translateX(0);
+}
