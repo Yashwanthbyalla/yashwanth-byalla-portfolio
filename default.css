@@ -799,18 +799,57 @@ h6 {
   color: #000;
 }
 
-.y-scroll {
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 2px 4px 5px rgb(0 0 0 / 30%);
-  transition: transform 0.4s ease;
+
+/* Slide */
+.y-scroll-slide-up {
+  transform: translateY(50%);
+  opacity: 0;
 }
-.y-scroll-right {
+.y-scroll-slide-down {
+  transform: translateY(-50%);
+  opacity: 0;
+}
+.y-scroll-slide-right {
   transform: translateX(400%);
 }
-.y-scroll-left {
+.y-scroll-slide-left {
   transform: translateX(-400%);
 }
-.y-scroll.show {
+
+.y-scroll.sal-show {
   transform: translateX(0);
+}
+
+/* Zoom */
+.y-scroll-zoom-in {
+  transform: scale(.6);
+}
+.y-scroll-zoom-out {
+  transform: scale(1.2);
+}
+
+/* Flip */
+.y-scroll-flip-left {
+  transform: perspective(2500px) rotateY(270deg);
+}
+.y-scroll-flip-left.aos-animate {
+  transform: perspective(2500px) rotateY(0);
+}
+.y-scroll-flip-right {
+  transform: perspective(2500px) rotateY(270deg);
+}
+.y-scroll-flip-right.aos-animate {
+  transform: perspective(2500px) rotateY(0);
+}
+.y-scroll-flip-up {
+  transform: perspective(2500px) rotateX(270deg);
+}
+.y-scroll-flip-up.aos-animate {
+  transform: perspective(2500px) rotateX(0);
+}
+.y-scroll-flip-bottom {
+  transform: perspective(2500px) rotateX(270deg);
+}
+.y-scroll-flip-bottom.aos-animate {
+  transform: perspective(2500px) rotateX(0);
 }
