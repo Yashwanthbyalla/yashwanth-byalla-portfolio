@@ -18,6 +18,8 @@
   --mainBorderColor: var(--mainBorderColor-dark);
   --blue: #00abff;
   --contact-bar-bg: #262626;
+  --link-btn-color: #000;
+  --skill-box-color: #1b262c;
 }
 
 html,
@@ -471,7 +473,7 @@ h6 {
   justify-content: center;
   align-items: center;
   height: 50px;
-  background: #1b262c;
+  background: var(--skill-box-color);
   border-radius: 40px;
   transition: transform 0.5s;
   cursor: default;
@@ -574,11 +576,11 @@ h6 {
 .left-side .btn-container .link-btn {
   padding: 12px 20px;
   border-radius: 50px;
-  color: #000;
+  color: var(--link-btn-color);
 }
 .left-side .btn-container .code-btn i,
 .left-side .btn-container .link-btn i {
-  color: #000;
+  color: var(--link-btn-color);
   margin-right: 5px;
 }
 .left-side img {
