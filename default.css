@@ -868,3 +868,93 @@ h6 {
 .y-scroll-flip-bottom.aos-animate {
   transform: perspective(2500px) rotateX(0);
 }
+
+/* Jo - PA */
+.jo-pa {
+  position: fixed;
+  bottom: 1rem;
+  left: 15px;
+  display: flex;
+  flex-direction: column;
+  background: var(--contact-bar-bg);
+  border-radius: 30px;
+  box-shadow: 3px 3px 6px #00000042;
+  padding: 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.jo-pa-panel {
+  position: fixed;
+  bottom: 0;
+  left: 1rem;
+  width: 415px;
+  height: 500px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  display: none;
+  background: linear-gradient(135deg, rgb(158 195 214) 10%, rgb(234 223 241) 50%, rgb(181 190 236) 100%);
+}
+
+.jo-pa-panel-interaction-question {
+  margin-bottom: 2rem;
+}
+.jo-pa-panel-interaction-question h4 {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.jo-pa-options div {
+  display: inline-block;
+  padding: 1rem;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 20px;
+  text-align: center;
+  background: var(--skill-box-color);
+  color: #fff;
+  text-transform: uppercase;
+}
+.jo-pa-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+.jo-pa-chat-content {
+  position: fixed;
+  bottom: 1rem;
+}
+.jo-pa-options {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#chat-input-field {
+  display: block;
+  min-height: calc(1.5em + 1rem + calc(1px * 2));
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  width: 350px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #dee2e6;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.375rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+#submit-button .fa-paper-plane {
+  font-size: 20pt;
+  padding-left: 0.5rem;
+}
