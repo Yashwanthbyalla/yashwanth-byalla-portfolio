@@ -1,0 +1,403 @@
+.skills-section {
+  padding: 8rem 0;
+  background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%),
+              radial-gradient(ellipse at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1rem;
+  }
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+
+  &:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    border-color: hsl(var(--hue), 70%, 50%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 30px hsla(var(--hue), 70%, 50%, 0.3);
+
+    .skill-glow {
+      opacity: 1;
+    }
+
+    .skill-particles .particle {
+      animation: particleBurst 0.6s ease-out forwards;
+    }
+
+    .skill-icon i {
+      transform: scale(1.2) rotateY(360deg);
+    }
+  }
+
+  .skill-icon {
+    margin-bottom: 1.5rem;
+    
+    i {
+      font-size: 3rem;
+      transition: all 0.6s ease;
+      display: inline-block;
+    }
+  }
+
+  .skill-content {
+    .skill-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .skill-level {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .skill-bar {
+        flex: 1;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+
+        .skill-progress {
+          height: 100%;
+          border-radius: 4px;
+          transition: width 1s ease-out;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+          }
+        }
+      }
+
+      .skill-percentage {
+        font-weight: 600;
+        color: #00d4ff;
+        min-width: 40px;
+      }
+    }
+  }
+
+  .skill-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, hsla(var(--hue), 70%, 50%, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .skill-particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: hsl(var(--hue), 70%, 50%);
+      border-radius: 50%;
+      opacity: 0;
+
+      @for $i from 1 through 12 {
+        &:nth-child(#{$i}) {
+          transform: rotate(#{$i * 30}deg) translateX(0);
+        }
+      }
+    }
+  }
+}
+
+.skills-visualization {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+
+  @media (max-width: 1200px) {
+    min-height: 400px;
+  }
+}
+
+.skill-orbit-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+
+  @media (max-width: 768px) {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.brain-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  .brain-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 250px;
+    
+    .brain-outline {
+      animation: brainPulse 3s ease-in-out infinite;
+    }
+  }
+
+  .neural-network {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .neuron {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: radial-gradient(circle, #ff69b4, #ff1493);
+      border-radius: 50%;
+      animation: neuronPulse 2s ease-in-out infinite;
+      box-shadow: 0 0 8px rgba(255, 105, 180, 0.6);
+    }
+  }
+}
+
+.central-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .hub-core {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #00d4ff, #ff00ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    animation: hubPulse 2s ease-in-out infinite;
+
+    .hub-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+  }
+}
+
+.skill-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate var(--orbit-duration) linear infinite;
+  z-index: 5;
+
+  .orbit-skill {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: counterRotate var(--orbit-duration) linear infinite reverse;
+
+    i {
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+  }
+}
+
+.skills-summary {
+  margin-top: 4rem;
+
+  .summary-card {
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #00d4ff;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+    }
+
+    .learning-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+
+      .tag {
+        padding: 0.5rem 1rem;
+        background: linear-gradient(45deg, rgba(0, 212, 255, 0.2), rgba(255, 0, 255, 0.2));
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 25px;
+        font-size: 0.9rem;
+        color: #ffffff;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+      }
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes particleBurst {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--angle)) translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(50px) scale(0);
+  }
+}
+
+@keyframes brainPulse {
+  0%, 100% { 
+    stroke: rgba(255, 105, 180, 0.6);
+    fill: rgba(255, 182, 193, 0.15);
+    filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.4));
+  }
+  50% { 
+    stroke: rgba(255, 105, 180, 0.9);
+    fill: rgba(255, 182, 193, 0.25);
+    filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.7));
+  }
+}
+
+@keyframes neuronPulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+    background: radial-gradient(circle, #ff69b4, #ff1493);
+  }
+  50% { 
+    transform: scale(1.5);
+    opacity: 1;
+    background: radial-gradient(circle, #ff69b4, #ff69b4);
+  }
+}
+
+@keyframes hubPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes counterRotate {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(-360deg); }
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 4rem 0;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    padding: 1.5rem;
+  }
+}
